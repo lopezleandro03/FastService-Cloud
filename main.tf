@@ -1,5 +1,13 @@
 # Configure the Azure provider
 terraform {
+  backend "remote" {
+    organization = "FastService"
+
+    workspaces {
+      name = "FastService-Cloud"
+    }
+  }
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"

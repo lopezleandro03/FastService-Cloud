@@ -79,7 +79,7 @@ resource "azurerm_mssql_server" "ss-sqlserver" {
   location                     = azurerm_resource_group.rg.location
   version                      = "12.0"
   administrator_login          = "llopez7"
-  # administrator_login_password = ""
+  administrator_login_password = var.ssadminpassword
   minimum_tls_version          = "1.2"
 
   tags = {

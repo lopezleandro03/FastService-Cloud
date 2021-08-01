@@ -19,9 +19,9 @@ terraform {
 }
 
 provider "azurerm" {
-  tenant_id = var.tenant_id
-  client_id = var.client_id
-  client_secret = var.client_secret
+  tenant_id       = var.tenant_id
+  client_id       = var.client_id
+  client_secret   = var.client_secret
   subscription_id = var.subscription_id
 
   features {
@@ -43,12 +43,12 @@ resource "azurerm_app_service_plan" "asp-webapp" {
   resource_group_name = azurerm_resource_group.rg.name
 
   sku {
-    tier = "Free"
-    size = "F1"
+    tier     = "Free"
+    size     = "F1"
     capacity = 0
   }
 
-  kind = "app"
+  kind             = "app"
   per_site_scaling = "false"
 
   tags = {
@@ -62,16 +62,16 @@ resource "azurerm_app_service" "as-webapp" {
   resource_group_name = azurerm_resource_group.rg.name
   app_service_plan_id = azurerm_app_service_plan.asp-webapp.id
 
-  enabled = "true"
-  https_only = "true"
+  enabled                 = "true"
+  https_only              = "true"
   client_affinity_enabled = "true"
 
   site_config {
-    dotnet_framework_version = "v4.0"
-    managed_pipeline_mode = "Integrated"
+    dotnet_framework_version  = "v4.0"
+    managed_pipeline_mode     = "Integrated"
     use_32_bit_worker_process = "true"
-    websockets_enabled = "false"
-    always_on = "false"
+    websockets_enabled        = "false"
+    always_on                 = "false"
   }
 
   tags = {
@@ -112,12 +112,12 @@ resource "azurerm_storage_account" "sa-dbbackups" {
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  account_kind = "StorageV2"
-  min_tls_version = "TLS1_2"
+  account_kind             = "StorageV2"
+  min_tls_version          = "TLS1_2"
 
-  allow_blob_public_access = false
+  allow_blob_public_access  = false
   enable_https_traffic_only = true
-  
+
   tags = {
     "terraform-managed" = "true"
   }

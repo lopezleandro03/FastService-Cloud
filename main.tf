@@ -41,13 +41,13 @@ module "webapp" {
   source = "./modules/webapp"
 
   resource_group = azurerm_resource_group.rg
-  webapp_name = "fastserviceweb"
+  webapp_name    = "fastserviceweb"
 }
 
 module "database" {
   source = "./modules/database"
 
-  resource_group = azurerm_resource_group.rg
-  server_name = "fastservicebackups"
+  resource_group  = azurerm_resource_group.rg
+  server_name     = "fastservicebackups"
   ssadminpassword = var.ssadminpassword
 }

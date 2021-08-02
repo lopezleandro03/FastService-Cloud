@@ -6,7 +6,7 @@ variable "server_name" {
 
 variable "ssadminpassword" {
   description = "sql server admin password"
-  type = string
+  type        = string
 }
 
 variable "resource_group" {

@@ -4,6 +4,12 @@ variable "server_name" {
   default     = "fastservicebackups"
 }
 
+variable "backup_storage_name" {
+  description = "Name of storage account used for backups"
+  type        = string
+  default     = "fastservicebackups"
+}
+
 variable "ssadminpassword" {
   description = "sql server admin password"
   type        = string

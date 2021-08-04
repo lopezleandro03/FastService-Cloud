@@ -1,6 +1,6 @@
 
 resource "azurerm_mssql_server" "ss-sqlserver" {
-  name                         = "fastservicedb"
+  name                         = var.server_name
   resource_group_name          = var.resource_group.name
   location                     = var.resource_group.location
   version                      = "12.0"
@@ -27,7 +27,7 @@ resource "azurerm_mssql_database" "db-database" {
 }
 
 resource "azurerm_storage_account" "sa-dbbackups" {
-  name                     = var.server_name
+  name                     = var.backup_storage_name
   resource_group_name      = var.resource_group.name
   location                 = var.resource_group.location
   account_tier             = "Standard"

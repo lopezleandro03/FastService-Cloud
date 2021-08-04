@@ -35,6 +35,10 @@ variable "server_name" {
   type = string
 }
 
+variable "backup_storage_name" {
+  type = string
+}
+
 variable "location" {
   type = string
 }

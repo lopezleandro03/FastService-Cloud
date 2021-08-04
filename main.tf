@@ -24,13 +24,12 @@ provider "azurerm" {
   client_secret   = var.client_secret
   subscription_id = var.subscription_id
 
-  features {
-  }
+  features {}
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "fastservice-app"
-  location = "brazilsouth"
+  name     = var.resource_group
+  location = var.location
 
   tags = {
     "terraform-managed" = "true"
@@ -41,13 +40,13 @@ module "webapp" {
   source = "./modules/webapp"
 
   resource_group = azurerm_resource_group.rg
-  webapp_name    = "fastserviceweb"
+  webapp_name    = var.webapp_name
 }
 
 module "database" {
   source = "./modules/database"
 
   resource_group  = azurerm_resource_group.rg
-  server_name     = "fastservicebackups"
+  server_name     = var.server_name
   ssadminpassword = var.ssadminpassword
 }

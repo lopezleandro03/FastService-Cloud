@@ -46,8 +46,8 @@ module "webapp" {
 module "database" {
   source = "./modules/database"
 
-  resource_group  = azurerm_resource_group.rg
-  server_name     = var.server_name
+  resource_group      = azurerm_resource_group.rg
+  server_name         = var.server_name
   backup_storage_name = var.backup_storage_name
-  ssadminpassword = var.ssadminpassword
+  ssadminpassword     = var.ssadminpassword
 }
